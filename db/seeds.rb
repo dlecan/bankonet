@@ -794,7 +794,7 @@ count = firstnames.length
   
   puts "Creating user #{firstnames[i]} #{lastnames[i]}... (#{i + 1} out of #{count})"
   user = User.create(
-    :username => (firstnames[i][0] + lastnames[i]).downcase, 
+    :username => (firstnames[i][0,1] + lastnames[i]).downcase, 
     :firstname => firstnames[i],
     :lastname => lastnames[i],
     :phone => "(9" + rand(10).to_s + rand(10).to_s + ") 555-" + rand(10).to_s + rand(10).to_s + rand(10).to_s + rand(10).to_s,
