@@ -1,0 +1,9 @@
+debit:
+  type: Debit
+  amount: 100
+  account_id: 4
+  
+credit:
+  type: Credit
+  amount: 200
+  account_id: 4

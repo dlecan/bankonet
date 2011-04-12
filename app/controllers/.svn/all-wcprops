@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers
+END
+base_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/base_controller.rb
+END
+accounts_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/accounts_controller.rb
+END
+application_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/application_controller.rb
+END
+profiles_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/profiles_controller.rb
+END
+operations_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/operations_controller.rb
+END
+statements_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/statements_controller.rb
+END
+transfers_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/transfers_controller.rb
+END
+home_controller.rb
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/controllers/home_controller.rb
+END

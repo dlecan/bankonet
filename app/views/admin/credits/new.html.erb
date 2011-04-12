@@ -1,0 +1,29 @@
+<% content_for :title do @user.fullname end %>
+
+<% content_for :shortcuts do %>
+  <dl class="first">
+  	<dt><%= image_tag "back.png" %></dt>
+  	<dd><%= link_to t("action.back"), admin_account_path(@account) %></dd>
+  	<dd class="last"><%= t "account.action.show" -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= t "credit.title.new", :account => @account.description -%></h2>
+
+<%= form_for([:admin, :account, @credit]) do |f| %>
+  <%= show_errors_for @credit %>
+  <fieldset>
+    <p>
+      <%= f.label :description, :class => "required" %><br />
+      <%= f.text_field :description, :class => "half" %>
+    </p>
+    <p>
+      <%= f.label :amount, :class => "required" %><br />
+      <%= f.text_field :amount, :class => "half" %>
+    </p>
+    <p class="box">
+      <%= f.submit t("credit.action.create"), :class => "btn btn-green big" %>
+      <%= f.submit t("action.reset"), :type => "reset", :class => "btn big" %>
+    </p>
+  </fieldset>
+<% end %>

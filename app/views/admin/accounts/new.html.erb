@@ -1,0 +1,15 @@
+<% content_for :title do @user.fullname end %>
+
+<% content_for :shortcuts do %>
+  <dl class="first">
+  	<dt><%= image_tag "back.png" %></dt>
+  	<dd><%= link_to t("action.back"), admin_user_accounts_path(@user) %></dd>
+  	<dd class="last">Back to customer accounts</dd>
+  </dl>
+<% end %>
+
+<h2><%= t "account.action.new" -%></h2>
+
+<%= form_for([:admin, :user, @account]) do |f| %>
+  <%= render "form", :f => f %>
+<% end %>

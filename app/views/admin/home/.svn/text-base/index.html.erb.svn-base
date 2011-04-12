@@ -1,0 +1,13 @@
+<% content_for :title do "Welcome" end %>
+
+<p>Welcome to Bankonet Administration.</p>
+
+<p>
+  Bankonet is currently managing:
+  <ul>
+    <li><%= User.count -%> <%= link_to "customers", admin_users_path -%></li>
+    <li><%= Account.count -%> accounts</li>
+    <li><%= Operation.count -%> operations (<%= Credit.count -%> credits and <%= Debit.count -%> debits)</li>
+    <li><%= Transfer.count -%> transfers</li>
+  </ul>
+</p>

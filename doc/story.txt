@@ -1,0 +1,269 @@
+rails new bankonet [- d mysql]
+
+cd bankonet
+
+(*) config/databases.yml
+
+rm public/index.html
+
+cp {?}/application.css public/stylesheets/
+
+Gemfile
+    # Authentification with Devise
+    gem 'devise'
+    # Authorization with CanCan
+    gem 'cancan'
+    # PDF generation with Prawn
+    gen 'prawn'
+    
+bundle install
+
+rails plugin install git://github.com/rails/country_select.git
+rails plugin install git://github.com/thorny-sun/prawnto.git
+
+rails generate devise:install
+
+config/application.rb
+    (+) config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+rails generate controller home index
+
+config/routes.rb
+    (-) get "home#index"
+    (+) root :to => "home#index"
+    
+(*) app/views/layouts/application.html.erb
+
+rake db:create
+
+rails generate devise User
+
+xxx_devise_create_users.rb
+    def self.up
+      create_table(:users) do |t|
+        t.string :username,         :null => false
+        t.string :firstname,        :null => false
+        t.string :lastname,         :null => false
+        t.string :phone,            :null => false
+        t.string :street
+        t.string :zip_code
+        t.string :city
+        t.string :country
+        t.database_authenticatable  :null => false
+        t.recoverable
+        t.rememberable
+        t.trackable
+        # t.confirmable
+        # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
+        # t.token_authenticatable
+        t.timestamps
+      end
+
+      add_index :users, :username,              :unique => true
+      add_index :users, :email,                 :unique => true
+      add_index :users, :reset_password_token,  :unique => true
+      # add_index :users, :confirmation_token,  :unique => true
+      # add_index :users, :unlock_token,        :unique => true
+    end
+    ...
+
+models/user.rb
+    (*) attr_accessible :username, :firstname, :lastname, :phone, :street, :zip_code, :city, :country
+    (+) validates_presence_of :username, :firstname, :lastname
+
+config/initializers/devise.rb
+    (*) config.authentication_keys = [ :username ]
+
+rake db:migrate
+
+app/controllers/application_controller.rb
+    (+) before_filter :authenticate_user!, :except => [:sign_in, :sign_up]
+
+rails generate devise:views
+
+# Remplacement des occurences de :email par :username dans devise/sessions/new.html.erb
+# Ajout des attributs supplémentaires (:username, :firstname, :lastname, etc.) dans devise/registrations/*.html.erb
+
+config/locales/devise.en.yml
+    (*) en.devise.failure.invalid: 'Invalid username or password.'
+
+rails generate scaffold Account description:string balance:decimal user_id:integer
+
+xxx_create_accounts.rb
+    class CreateAccounts < ActiveRecord::Migration
+      def self.up
+        create_table :accounts do |t|
+          t.string :description,  :null => false
+          t.decimal :balance, :scale => 2
+          t.integer :user_id, :null => false
+          t.timestamps
+        end
+      end
+      ...
+
+rake db:migrate
+
+app/models/account.rb
+    (+) belongs_to :user
+    (+) validates_presence_of :description, :user
+
+db/seeds.rb
+    # coding: utf-8
+    User.delete_all
+    user = User.create(
+       :username => "pguegan", 
+       :firstname => "Guégan", 
+       :lastname => "Philippe", 
+       :phone => "02 40 48 67 78", 
+       :email => "philippe.guegan@gmail.com", 
+       :password => "bankonet"
+    )
+
+    Account.delete_all
+    user.accounts.create(
+       :description => "Compte chèque",
+       :balance => 100
+    )
+    user.accounts.create(
+        :description => "Compte commun",
+        :balance => -250
+    )
+    user.accounts.create(
+        :description => "Compte d'épargne",
+        :balance => 7500
+    )
+    user.accounts.create(
+        :description => "Réserve",
+        :balance => 500
+    )
+
+rails generate model Operation type:string amount:decimal (:scale => 2) account_id:integer
+
+rake db:migrate
+
+models/operation.rb
+  belongs_to :account
+
+  validates_presence_of :account, :amount
+  validates_numericality_of :amount
+  
+  before_save :modify_account_balance
+
+(+) models/debit.rb
+  private
+  
+  def modify_account_balance
+    account.balance -= amount
+    account.save
+  end
+
+(+) models/credit.rb
+  private
+  
+  def modify_account_balance
+    account.balance += amount
+    account.save
+  end
+  
+models/account.rb
+  (+) has_many :operations, :order => "date_created ASC"
+  (+) has_many :debits
+  (+) has_many :credits
+
+rails generate scaffold Transfer amount:decimal (:scale => 2) source_id:integer target_id:integer
+
+rake db:migrate
+
+app/models/transfers.rb
+  include ActiveModel::Validations
+
+  class TransferValidator < ActiveModel::EachValidator
+    def validate_each(record, attribute, value)
+      if record.source_id? and record.target_id?
+        source = Account.find(record.source_id)
+        target = Account.find(record.target_id)
+        record.errors[attribute] << "must be different from target" if source.id == target.id
+        record.errors[attribute] << "must belong to the same user" unless source.user_id == target.user_id
+      end
+    end
+  end
+
+  belongs_to :source, :class_name => "Account"
+  belongs_to :target, :class_name => "Account"
+  
+  validates_presence_of :source, :target :amount
+  validates_numericality_of :amount, :greater_than => 0
+  validates :source, :transfer => true
+  
+  private
+
+  def transfer_money
+    source.debits.create(:amount => amount)
+    target.credits.create(:amount => amount)
+  end
+
+rails g migration AddDescriptionToOperations
+
+xxx_add_description_to_operations.rb
+  def self.up
+    add_column :operations, :description, :string
+  end
+
+  def self.down
+    remove_column :operations, :description
+  end
+
+rake db:migrate
+
+app/models/transfers.rb
+  
+  def transfer_money
+    (*) params = {:amount => amount, :description => "Transfer"}
+    (*) source.debits.create(params)
+    (*) target.credits.create(params)
+  end
+
+
+...
+
+
+rails generate devise Manager
+
+xxx_devise_create_managers.rb
+    def self.up
+      create_table(:managers) do |t|
+        t.string :username,         :null => false
+        t.string :firstname,        :null => false
+        t.string :lastname,         :null => false
+        ...
+        
+models/manager.rb
+    (*) attr_accessible :username, :firstname, :lastname
+    (+) validates_presence_of :username, :firstname, :lastname
+
+
+### i18n ###
+
+app/controllers/application_controller.rb  
+  before_filter :set_locale
+  
+  def set_locale
+    # if params[:locale] is nil then I18n.default_locale will be used
+    I18n.locale = params[:locale]
+  end
+  
+  def default_url_options(options={})
+    logger.debug "default_url_options is passed options: #{options.inspect}\n"
+    { :locale => I18n.locale }
+  end
+  
+config/routes.rb
+  scope "/:locale" do
+    resources :accounts
+    resources :transfers
+
+    devise_for :users
+    
+    root :to => "home#index"
+  end
+

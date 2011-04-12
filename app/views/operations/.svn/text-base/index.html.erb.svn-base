@@ -1,0 +1,33 @@
+<h2><%= t("operation.title.index") -%></h2>
+
+<div class="box box-info"><%= t("operation.info") -%></div>
+
+<table class="stylized full">
+	<thead>
+		<tr>
+		  <th>#</th>
+      <th><%= t "model.account" -%></th>
+      <th><%= t "model.description" -%></th>
+      <th><%= t "model.date" -%></th>
+      <th class="ta-right"><%= t "model.debit" -%></th>
+      <th class="ta-right"><%= t "model.credit" -%></th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @operations.each_with_index do |operation, index| %>
+    <tr>
+      <td><%= index + @operations.offset + 1 %></td>
+      <td><%= link_to operation.account.description, operation.account %></td>
+      <td><%= operation.description %></td>
+      <td><%= l operation.created_at, :format => :long %></td>
+      <td class="ta-right">
+        <%= number_to_currency operation.amount if operation.debit? %>
+      </td>
+      <td class="ta-right">
+        <%= number_to_currency operation.amount if operation.credit? %>
+      </td>
+    </tr>
+    <% end %>
+	</tbody>
+</table>
+<%= will_paginate @operations %>

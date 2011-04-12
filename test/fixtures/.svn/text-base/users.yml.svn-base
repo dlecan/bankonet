@@ -1,0 +1,19 @@
+default:
+  id: 1
+  username: pguegan
+  firstname: Philippe
+  lastname: Guégan
+  email: phguegan@sqli.com
+  phone: 0240486778
+  encrypted_password: $2a$10$Sotuy.Yfdhgdz.2Q.BOsR.V5BjfrlYZ6PEBiWrZ/GPmbQAQp4oMRC
+  password_salt: $2a$10$Sotuy.Yfdhgdz.2Q.BOsR.
+
+foreigner:
+  id: 2
+  username: foreigner
+  firstname: Dexter
+  lastname: Morgan
+  email: dexter@example.com
+  phone: 555-123456
+  encrypted_password: $2a$10$Sotuy.Yfdhgdz.2Q.BOsR.V5BjfrlYZ6PEBiWrZ/GPmbQAQp4oMRC
+  password_salt: $2a$10$Sotuy.Yfdhgdz.2Q.BOsR.

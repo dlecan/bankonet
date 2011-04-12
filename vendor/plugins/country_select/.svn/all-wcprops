@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/vendor/plugins/country_select
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/vendor/plugins/country_select/install.rb
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/vendor/plugins/country_select/MIT-LICENSE
+END
+uninstall.rb
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/vendor/plugins/country_select/uninstall.rb
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/vendor/plugins/country_select/README
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/vendor/plugins/country_select/init.rb
+END

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bankonet</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!-- Favicons --> 
+    <link rel="shortcut icon" type="image/png" href="img/favicons/favicon.png"/>
+    <link rel="icon" type="image/png" href="img/favicons/favicon.png"/>
+    <link rel="apple-touch-icon" href="img/favicons/apple.png" />
+    <!-- Main Stylesheet --> 
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+    <!-- Your Custom Stylesheet --> 
+    <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    <!-- jQuery with plugins -->
+    <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+    <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+    <script type="text/javascript" src="js/jquery.ui.core.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.widget.min.js"></script>
+    <script type="text/javascript" src="js/jquery.ui.tabs.min.js"></script>
+    <!-- jQuery tooltips -->
+    <script type="text/javascript" src="js/jquery.tipTip.min.js"></script>
+    <!-- Superfish navigation -->
+    <script type="text/javascript" src="js/jquery.superfish.min.js"></script>
+    <script type="text/javascript" src="js/jquery.supersubs.min.js"></script>
+    <!-- jQuery form validation -->
+    <script type="text/javascript" src="js/jquery.validate_pack.js"></script>
+    <!-- jQuery popup box -->
+    <script type="text/javascript" src="js/jquery.nyroModal.pack.js"></script>
+    <!-- jQuery data tables -->
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <!-- Internet Explorer Fixes --> 
+    <!--[if IE]>
+    <link rel="stylesheet" type="text/css" media="all" href="css/ie.css"/>
+    <script src="js/html5.js"></script>
+    <![endif]-->
+    <!--Upgrade MSIE5.5-7 to be compatible with MSIE8: http://ie7-js.googlecode.com/svn/version/2.1(beta3)/IE8.js -->
+    <!--[if lt IE 8]>
+    <script src="js/IE8.js"></script>
+    <![endif]-->
+    <script type="text/javascript">
+      $(document).ready(function(){
+	      /* setup navigation, content boxes, etc... */
+	      Administry.setup();
+	      /* expandable rows */
+	      Administry.expandableRows();
+      });
+    </script>
+  </head>
+  <body>
+	  <!-- Header -->
+	  <header id="top">
+		  <div class="wrapper">
+			  <!-- Title/Logo - can use text instead of image -->
+			  <div id="title"><img src="img/logo.png" alt="Administry" /><!--<span>Administry</span> demo--></div>
+			  <!-- Top navigation -->
+			  <div id="topnav">
+				  <a href="#"><img class="avatar" src="img/user_32.png" alt="" /></a>
+				  Logged in as <b>Admin</b>
+				  <span>|</span> <a href="#">Settings</a>
+				  <span>|</span> <a href="#">Logout</a><br />
+				  <small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
+			  </div>
+			  <!-- End of Top navigation -->
+			  <!-- Main navigation -->
+			  <nav id="menu">
+				  <ul class="sf-menu">
+					  <li><a href="dashboard.html">Home</a></li>
+					  <li class="current"><a href="accounts.html">Accounts</a></li>
+					  <li><a href="dashboard.html">Operations</a></li>
+					  <li><a href="dashboard.html">Transfers</a></li>
+					  <li><a href="dashboard.html">Statements</a></li>
+					  <li><a href="dashboard.html">About</a></li>
+				  </ul>
+			  </nav>
+			  <!-- End of Main navigation -->
+			  <!-- Aside links -->
+			  <aside><b>English</b> &middot; <a href="#">Français</a></aside>
+			  <!-- End of Aside links -->
+		  </div>
+	  </header>
+	  <!-- End of Header -->
+  	<!-- Page title -->
+  	<div id="pagetitle">
+  		<div class="wrapper">
+  			<h1>Accounts</h1>
+  			<!-- Quick search box -->
+  			<form action="" method="get"><input class="" type="text" id="q" name="q" value="Search..." /></form>
+  		</div>
+  	</div>
+  	<!-- End of Page title -->
+	  <!-- Page content -->
+	  <div id="page">
+		  <!-- Wrapper -->
+		  <div class="wrapper">
+				<!-- Left column/section -->
+				<section class="column width6 first">
+					<h3>Your Accounts</h3>					
+					<table id="report" class="stylized full" style="">
+						<thead>
+							<tr>
+							  <th>#</th>
+								<th>Description</th>
+								<th class="ta-right">Balance</th>
+								<th>Actions</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+							  <td>1</td>
+								<td>Current Account</td>
+								<td class="ta-right">$100.00</td>
+								<td><a href="#">Edit</a></td>
+							</tr>
+							<tr>
+							  <td>1</td>
+								<td>Current Account</td>
+								<td class="ta-right">$100.00</td>
+								<td><a href="#">Edit</a></td>
+							</tr>
+							<tr>
+							  <td>1</td>
+								<td>Current Account</td>
+								<td class="ta-right">$100.00</td>
+								<td><a href="#">Edit</a></td>
+							</tr>
+							<tr>
+							  <td>1</td>
+								<td>Current Account</td>
+								<td class="ta-right">$100.00</td>
+								<td><a href="#">Edit</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+				<!-- End of Left column/section -->	
+				<!-- Right column/section -->
+				<aside class="column width2">
+					<div id="rightmenu">
+						<header>
+							<h3>Lorem ipsum dolor sit amet...</h3>
+						</header>
+						<dl class="first">
+							<dt><img width="16" height="16" alt="Phasellus at libero ipsum" src="img/style.png"></dt>
+							<dd><a href="styles.html">Phasellus at libero ipsum</a></dd>
+							<dd class="last">Aliquam vel neque nisi</dd>							
+							<dt><img width="16" height="16" alt="" src="img/book.png"></dt>
+							<dd><a href="#">Sed felis nis</a></dd>
+							<dd class="last">Aenean sed tortor augue</dd>							
+						</dl>
+					</div>
+					<div class="content-box">
+						<header>
+							<h3>Lorem ipsum</h3>
+						</header>
+						<section>
+							Lorem ipsum dolor:<br/>
+							<dl>
+								<dt></dt>
+								<dd><a href="#">Lorem ipsum dolor</a></dd>
+							</dl>
+						</section>
+					</div>
+				</aside>
+				<!-- End of Right column/section -->
+      </div>
+      <!-- End of Wrapper -->
+    </div>
+    <!-- End of Page content -->
+    <!-- Page footer -->
+    <footer id="bottom">
+      <div class="wrapper">
+        <nav>
+          <a href="#">Dashboard</a> &middot;
+          <a href="#">Content</a> &middot;
+          <a href="#">Reports</a> &middot;
+          <a href="#">Users</a> &middot;
+          <a href="#">Media</a> &middot;
+          <a href="#">Events</a> &middot;
+          <a href="#">Newsletter</a> &middot;
+          <a href="#">Settings</a>
+        </nav>
+        <p>Bankonet on Rails (&alpha; version) &middot; Copyright &copy; 2011 <a href="http://www.sqli.com">SQLI</a> &middot; <b>Design by <a href="http://themeforest.net/user/zoranjuric" title="Visit my profile page @ThemeForest">Zoran Juric</a></b> &middot; Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a></p>
+      </div>
+    </footer>
+    <!-- End of Page footer -->
+    <!-- Scroll to top link -->
+    <a href="#" id="totop">^ scroll to top</a>
+    <!-- User interface javascript load -->
+    <script type="text/javascript" src="js/administry.js"></script>
+  </body>
+</html>

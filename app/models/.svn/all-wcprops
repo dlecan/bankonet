@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models
+END
+user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models/user.rb
+END
+operation.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models/operation.rb
+END
+transfer.rb
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/models/transfer.rb
+END
+debit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models/debit.rb
+END
+manager.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models/manager.rb
+END
+credit.rb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models/credit.rb
+END
+account.rb
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/models/account.rb
+END

@@ -1,0 +1,46 @@
+<% content_for :shortcuts do %>
+  <dl class="first">
+	  <dt><%= image_tag "edit.png" %></dt>
+  	<dd><%= link_to t("account.action.edit"), edit_account_path(@account) %></dd>
+  	<dd><%= t("account.shortcut.edit") -%></dd>
+  	<dt><%= image_tag "back.png" %></dt>
+  	<dd><%= link_to t("action.back"), accounts_path %></dd>
+  	<dd class="last"><%= t("account.shortcut.back") -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= @account.description %></h2>
+
+<p>
+  <b><%= labelize "model.balance" -%></b> <%= number_to_currency @account.balance %>
+</p>
+
+<h3><%= t("account.title.list_operations") -%></h3>
+
+<table class="stylized full">
+	<thead>
+		<tr>
+		  <th>#</th>
+      <th><%= t "model.description" -%></th>
+      <th><%= t "model.date" -%></th>
+      <th class="ta-right"><%= t "model.debit" -%></th>
+      <th class="ta-right"><%= t "model.credit" -%></th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @operations.each_with_index do |operation, index| %>
+    <tr>
+      <td><%= index + @operations.offset + 1 %></td>
+      <td><%= operation.description %></td>
+      <td><%= l operation.created_at, :format => :long %></td>
+      <td class="ta-right">
+        <%= number_to_currency operation.amount if operation.debit? %>
+      </td>
+      <td class="ta-right">
+        <%= number_to_currency operation.amount if operation.credit? %>
+      </td>
+    </tr>
+    <% end %>
+	</tbody>
+</table>
+<%= will_paginate @operations %>

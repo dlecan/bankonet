@@ -1,0 +1,29 @@
+<% content_for :shortcuts do %>
+  <dl class="first">
+    <dt><%= image_tag "new.png" %></dt>
+  	<dd><%= link_to t("transfer.action.new"), new_transfer_path %></dd>
+  	<dd><%= t "transfer.shortcut.new" -%></dd>
+	  <dt><%= image_tag "back.png" %></dt>
+  	<dd><%= link_to t("action.back"), transfers_path %></dd>
+  	<dd class="last"><%= t "transfer.shortcut.back" -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= t "transfer.title.show" -%></h2>
+
+<p>
+  <b><%= labelize "model.amount" -%></b>
+  <%= number_to_currency @transfer.amount %>
+</p>
+<p>
+  <b><%= labelize "model.from" -%></b>
+  <%= @transfer.source.description %>
+</p>
+<p>
+  <b><%= labelize "model.to" -%></b>
+  <%= @transfer.target.description %>
+</p>
+<p>
+  <b><%= labelize "model.date" -%></b>
+  <%= l @transfer.created_at, :format => :long %>
+</p>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate
+END
+20110102205852_devise_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate/20110102205852_devise_create_users.rb
+END
+20110102212750_create_accounts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate/20110102212750_create_accounts.rb
+END
+20110206153146_add_description_to_operations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate/20110206153146_add_description_to_operations.rb
+END
+20110131220822_create_operations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate/20110131220822_create_operations.rb
+END
+20110127213156_create_transfers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate/20110127213156_create_transfers.rb
+END
+20110214205122_devise_create_managers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/db/migrate/20110214205122_devise_create_managers.rb
+END

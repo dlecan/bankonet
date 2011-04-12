@@ -1,0 +1,38 @@
+<% content_for :title do @user.fullname end %>
+
+<% content_for :shortcuts do %>
+  <dl class="first">
+    <dt><%= image_tag "new.png" %></dt>
+  	<dd><%= link_to t("transfer.action.new"), new_admin_user_transfer_path(@user) %></dd>
+  	<dd><%= t "transfer.shortcut.new" -%></dd>
+	  <dt><%= image_tag "accounts.png" %></dt>
+  	<dd><%= link_to t("model.account").pluralize.capitalize, admin_user_accounts_path(@user) %></dd>
+  	<dd class="last"><%= t "account.shortcut.index" -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= t("model.transfer").pluralize.capitalize -%></h2>
+
+<table class="stylized full">
+  <thead>
+    <tr>
+      <th><%= t "model.amount" %></th>
+      <th><%= t "model.source_account" %></th>
+      <th><%= t "model.target_account" %></th>
+      <th><%= t "model.date" %></th</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transfers.each do |transfer| %>
+      <tr>
+        <td class="amount"><%= number_to_currency transfer.amount %></td>
+        <td><%= link_to transfer.source.description, admin_account_path(transfer.source) %></td>
+        <td><%= link_to transfer.target.description, admin_account_path(transfer.target) %></td>
+        <td><%= l transfer.created_at, :format => :long %></td>
+        <td><%= link_to t("action.show"), admin_transfer_path(transfer), :class => "btn" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= will_paginate @transfers %>

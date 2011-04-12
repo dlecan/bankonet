@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Bankonet</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <%= csrf_meta_tag %>
+    <%= stylesheet_link_tag "style", "custom" %>
+    <!-- Could be loaded remotely from Google CDN : <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script> -->
+    <%= javascript_include_tag "jquery-1.4.2.min" %>
+    <%= javascript_include_tag "jquery.ui.core.min" %>
+    <%= javascript_include_tag "jquery.ui.widget.min" %>
+    <%= javascript_include_tag "jquery.ui.tabs.min" %>
+    <%= javascript_include_tag "jquery.tipTip.min" %>
+    <%= javascript_include_tag "jquery.superfish.min" %>
+    <%= javascript_include_tag "jquery.supersubs.min" %>
+    <script type="text/javascript">
+      $(document).ready(function(){
+	      Administry.setup();
+      });
+    </script>
+  </head>
+  <body>
+    <header id="top">
+      <div class="wrapper-login">
+        <div id="title"><span>Bankonet</span></div>
+     		<aside>
+     		  <% if params[:locale] == "en" %>
+			      <b>English</b> &middot;
+			      <%= link_to "Français", url_for(:locale => "fr") %>
+			    <% elsif params[:locale] == "fr" %>
+			      <%= link_to "English", url_for(:locale => "en") %> &middot;
+			      <b>Français</b>
+			    <% end %>
+     		</aside>
+      </div>
+    </header>
+    <div id="pagetitle">
+      <div class="wrapper-login"></div>
+    </div>
+    <div id="page">
+      <div class="wrapper-login">
+        <section class="full">
+          <%= yield %>
+          <div class="clear">&nbsp;</div>
+        </section>
+      </div>
+    </div>
+    <footer id="bottom">
+      <div class="wrapper-login">
+        <p>
+          <b>Bankonet on Rails</b> (&alpha; version) &middot; Copyright &copy; 2011<a href="http://www.sqli.com">SQLI</a>
+          <br />
+          <%= link_to t("layout.menu.administration"), new_manager_session_path %>
+        </p>
+      </div>
+    </footer>
+    <%= javascript_include_tag "administry" %>
+  </body>
+</html>

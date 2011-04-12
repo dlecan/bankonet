@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/views/admin/transfers
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/views/admin/transfers/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/views/admin/transfers/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svndev/PI210-4/!svn/ver/6485/trunk/ic/bankonet/bankonetRails/bankonet/app/views/admin/transfers/show.html.erb
+END

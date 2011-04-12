@@ -1,0 +1,37 @@
+<% content_for :shortcuts do %>
+  <dl class="first">
+	  <dt><%= image_tag "show.png" %></dt>
+  	<dd><%= link_to t("account.action.show"), @account %></dd>
+  	<dd><%= t("account.shortcut.show") -%></dd>
+  	<dt><%= image_tag "back.png" %></dt>
+  	<dd><%= link_to t("action.back"), accounts_path %></dd>
+  	<dd class="last"><%= t("account.shortcut.back") -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= t("account.title.edit") -%></h2>
+
+<%= form_for(@account) do |f| %>
+  <% if @account.errors.any? %>
+    <fieldset>
+      <div class="box box-error"><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</div>
+      <div class="box box-error-msg">
+  	    <ol>
+  	      <% @account.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+  	    </ol>
+      </div>
+    </fieldset>
+  <% end %>
+  <fieldset>
+    <p>
+      <%= f.label :description, :class => "required" %><br />
+      <%= f.text_field :description, :class => "half" %>
+    </p>
+    <p class="box">
+      <%= f.submit t("account.action.update"), :class => "btn btn-green big" %>
+      <%= f.submit t("action.reset"), :type => "reset", :class => "btn big" %>
+    </p>
+  </fieldset>
+<% end %>

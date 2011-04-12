@@ -1,0 +1,21 @@
+<h2><%= t("account.title.index") -%></h2>
+<table class="stylized full">
+	<thead>
+		<tr>
+		  <th>#</th>
+			<th><%= t "model.description" -%></th>
+			<th class="ta-right"><%= t "model.balance" -%></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+	  <% @accounts.each_with_index do |account, index| %>
+		<tr>
+		  <td><%= index + 1 %></td>
+			<td><%= link_to account.description, account %></td>
+			<td class="ta-right"><%= number_to_currency account.balance %></td>
+			<td class="ta-right"><%= link_to t("action.edit"), edit_account_path(account), :class => "btn" %></td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>

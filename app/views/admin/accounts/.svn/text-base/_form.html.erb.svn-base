@@ -1,0 +1,11 @@
+<%= show_errors_for @account %>
+<fieldset>
+  <p>
+    <%= f.label :description, :class => "required" %><br />
+    <%= f.text_field :description, :class => "half" %>
+  </p>
+  <p class="box">
+    <%= f.submit t("account.action.update"), :class => "btn btn-green big" %>
+    <%= f.submit t("action.reset"), :type => "reset", :class => "btn big" %>
+  </p>
+</fieldset>

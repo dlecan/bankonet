@@ -1,0 +1,7 @@
+<% content_for :title do "Customers" end %>
+
+<h2><%= t "user.title.new" -%></h2>
+
+<%= form_for([:admin, @user]) do |f| %>
+  <%= render "form", :f => f %>
+<% end %>

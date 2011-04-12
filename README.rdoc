@@ -1,0 +1,188 @@
+== Bankonet (on Rails)
+
+=== Objectif
+
+Afin de capitaliser son savoir-faire technologique, SQLi souhaite élaborer des
+applications de démonstration liées à ses domaines d'expertise. Au même titre que
+l'application « Petstore » de Sun, SQLi pourra illustrer l'utilisation de ses outils
+à travers ces applications en répondant à la question « Comment faire, par quels 
+moyens et quelle méthode ? ». L'objectif principal étant de diffuser les bonnes 
+pratiques, construites au fil des retours d'expérience. Ces applications de référence
+permettront de valoriser les compétences à l'extérieur en permettant d'affirmer 
+« Voici ce que nous sommes en mesure de réaliser et comment ». La première étape 
+consiste à définir un socle fonctionnel commun à toutes ces applications. Ce socle 
+fonctionnel est « Bankonet ». L'idée de SQLi est d'adopter une stratégie permettant 
+de cibler plus de plateformes (.Net, Symfony pour PHP, Ruby on Rails etc.) au lieu de 
+cibler uniquement Borneo. Pour ce qui est de l'outillage, de nombreux frameworks sont 
+amenés à émerger sur le marché, notamment dans le domaine de la génération code à 
+partir de modèles, point crucial pour l'atteinte des exigences attendues par le niveau
+CMMI niveau 4.
+
+Cette première version de Bankonet est très simple. Il s'agit de prototyper la gestion 
+d'une banque sur ses fonctions métiers principales dans le but :
+*	d'avoir un projet pilote simple et un exemple de spécifications fonctionnelles disponible pour tous les SQLiens ;
+*	de valider la démarche SPEC et FACTORY ;
+*	de valider l'architecture applicative ;
+*	d'avoir une indépendance vis-à-vis du choix l'interface graphique : palm, web (JSF, Struts, ...), etc. ;
+*	d'avoir une indépendance vis-à-vis du fournisseur de la base de données : MySQL, HSQL, Oracle, etc. ;
+*	de présenter des règles de développements et un exemple appliquant l'architecture préconisée :
+  * proposer une organisation des sources, des couches et un vocabulaire ;
+  * proposer plusieurs types de recherche ;
+  * proposer tous les cas de mise à jour d'une base de données ;
+  * proposer plusieurs interfaces graphiques et couches présentation ;
+  * faciliter les tests unitaires et d'intégration.
+
+Cependant, comme ce projet est rudimentaire, il couvre peu de besoins fonctionnels, peu 
+de complexités et de problématiques projet. Au fur et à mesure des retours projets, SQLI 
+améliorera ce prototype.
+
+=== Déclinaison Ruby on Rails
+
+Ruby on Rails (aussi appelé Rails, ou encore RoR) est un <i>framework</i> de développement d'applications Web de haute productivité, avec lequel on bénéficie d'emblée :
+* d'une architecture MVC (Modèle - Vue - Contrôleur) ;
+* d'une mise en oeuvre {RESTful}[http://en.wikipedia.org/wiki/Representational_State_Transfer] ;
+* du support de l'internalisation ;
+* de la génération de code (<i>scaffolding</i> des contrôleurs et des modèles, création et migration de schémas de bases de données) ;
+* d'une réduction au strict minimum de la configuration (ORM, routage, etc.) ;
+* d'un <i>framework</i> et d'un environnement de test parfaitement intégrés ;
+* et bien sûr du langage Ruby, expressif, dynamique, très agréable à lire et à écrire, et 100% orienté objet.
+
+Pour SQLI, disposer de ce nouveau prototype montre qu'on est capable de faire autre chose que du Java / .Net / PHP, et qu'on est au fait des nouvelles technologies / nouveaux outils.
+
+Le fait est que Ruby on Rails est particulièrement bien adapaté à ce type de projet. On ne pouvait donc pas se permettre de ne pas avoir Ruby on Rails comme nouvelle arme de notre arsenal technologique ;)
+
+=== Version SPEC
+
+Cette mise en œuvre de Bankonet est basée sur les 
+{spécifications 1.0}[https://cmmi.sqli.com/intracap/wiki/index.php/PrototypeBankonetSPEC]. Ces 
+spécifications sont maintenues par le 
+{chantier SPEC}[https://cmmi.sqli.com/intracap/wiki/index.php/Chantier:SPEC].
+
+== Mise en route
+
+=== Prérequis
+
+==== Ruby
+
+Pour pouvoir exécuter l'application Bankonet, vous devez disposer de Ruby 1.8.7 ou 1.9.2
+(cette dernière version étant recommandée). Pour installer Ruby sur votre environnement,
+vous pouvez suivre les indications fournies sur 
+{le site officiel}[http://www.ruby-lang.org/fr/downloads].
+
+Une autre solution, réputée très simple et largement utilisée dans la communauté Ruby, est
+d'utiliser {RVM}[http://rvm.beginrescueend.com] (Ruby Version Manager).
+
+==== MySQL
+
+Vous devez aussi disposer d'un serveur de bases de données MySQL.
+
+=== Installation des gemmes
+
+Bundler est l'outil fourni avec Rails 3 pour gérer les dépendances. Pour installer les gemmes
+nécessaires à l'exécution de l'application, il suffit de saisir la commande :
+
+  $ bundle install
+
+Pour la liste détaillée des gemmes utilisées, se rendre à la section « Gemmes ».
+
+=== Configuration
+
+Avec Rails, aucune configuration à réaliser. Cependant, vous devrez tout de même éditer le
+fichier <tt>config/database.yml</tt> pour insérer les informations de connexion à la base
+MySQL pour l'environnement de développement et de test. Par exemple, pour l'environnement de
+développement :
+
+  development:
+    adapter: mysql2
+    encoding: utf8
+    database: bankonet_development
+    pool: 5
+    username: [identifiant]
+    password: [mot de passe]
+    socket: /tmp/mysql.sock
+
+=== Initialisation de la base de données
+
+Pour créer la base de données, créer les tables et alimenter les tables avec un jeu de données factice, entrer la commande :
+
+  $ rake db:setup
+
+=== Lancement de l'application
+
+Toute application Rails est munie d'un serveur applicatif WEBrick, qui est tout à fait suffisant
+pour les phases de développement et de démonstration. Pour lancer l'application Bankonet, se
+placer dans le répertoire racine du projet, et taper la commande suivante dans un terminal :
+
+  $ rails server
+
+Ou, plus simplement :
+
+  $ rails s
+
+Vous pouvez ensuite vous rendre sur la page http://localhost:3000/en, et commencer à utiliser
+l'application Bankonet. Pour se rendre sur l'interface d'administration, se rendre sur la page
+http://localhost:3000/en/admin.
+
+Exemples d'identifiants de connexion :
+* Client : pguegan / bankonet
+* Manager : admin / bankonet
+
+== Gemmes
+
+=== Gemmes techniques
+
+Ruby on Rails::  {rails}[https://github.com/rails/rails] (version 3.0.5)
+MySQL::  {mysql2}[https://github.com/brianmario/mysql2]
+
+=== Gemmes fonctionnelles
+
+Authentification::  {devise}[https://github.com/plataformatec/devise]
+Pagination::  {will_paginate}[https://github.com/mislav/will_paginate]
+PDF (génération)::  {prawn}[https://github.com/sandal/prawn] (version 0.11.1.pre)
+PDF (intégration Rails)::  {prawnto}[https://github.com/thorny-sun/prawnto]
+
+=== Gemmes projet
+
+Déploiement::  {capistrano}[https://github.com/capistrano/capistrano]
+
+== Plugins
+
+Nota : l'utilisation de plugins n'est plus vraiment à la mode. Il conviendra de trouver des gemmes équivalentes.
+
+Référentiel des pays::  {country_select}[git://github.com/rails/country_select.git]
+
+== Resources REST et routage
+
+Pour afficher le routage complet des URLs (et de leurs ressources associées) :
+
+  $ rake routes
+
+== Tests
+
+Pour exécuter les tests :
+
+  $ rake test
+
+Pour ne lancer que les tests unitaires :
+
+  $ rake test:units
+
+== Auteurs
+
+Philippe Guégan:: mailto:pguegan@sqli.com.
+
+N'hésitez pas à me contacter pour toute demande d'information concernant Ruby on Rails en général, ou cette version de Bankonet en particulier. Je me ferai un plaisir de répondre à vos questions ou à prendre en compte vos remarques.
+
+== Remerciements
+
+=== SQLI Lyon
+
+Je tiens naturellement à remercier Rémy Girodon (référent Bankonet), Olivier Feutrier (référent SPEC) et Pierre Thomas pour leur aide précieuse.
+
+=== SQLI Nantes
+
+Merci à François Amisse (BUM NAI3) pour son soutien et sa confiance.
+
+== Copyright
+
+Bankonet on Rails. Copyright 2011 (c) {SQLI}[http://www.sqli.com].

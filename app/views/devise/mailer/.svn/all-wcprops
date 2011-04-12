@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/views/devise/mailer
+END
+unlock_instructions.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/views/devise/mailer/unlock_instructions.html.erb
+END
+confirmation_instructions.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/views/devise/mailer/confirmation_instructions.html.erb
+END
+reset_password_instructions.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 131
+/svndev/PI210-4/!svn/ver/6483/trunk/ic/bankonet/bankonetRails/bankonet/app/views/devise/mailer/reset_password_instructions.html.erb
+END

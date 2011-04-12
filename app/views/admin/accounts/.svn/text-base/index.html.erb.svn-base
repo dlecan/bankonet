@@ -1,0 +1,41 @@
+<% content_for :title do @user.fullname end %>
+
+<% content_for :shortcuts do %>
+  <dl class="first">
+    <dt><%= image_tag "user.png" %></dt>
+  	<dd><%= link_to t("user.action.show"), admin_user_path(@user) %></dd>
+  	<dd><%= t("user.shortcut.show") -%></dd>
+  	<dt><%= image_tag "new_account.png" %></dt>
+  	<dd><%= link_to t("account.action.new"), new_admin_user_account_path(@user) %></dd>
+  	<dd>Create new account.</dd>
+  	<dt><%= image_tag "transfers.png" %></dt>
+  	<dd><%= link_to t("transfer.action.index"), admin_user_transfers_path(@user) %></dd>
+  	<dd class="last"><%= t("transfer.shortcut.index") -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= t("model.account").pluralize.capitalize -%></h2>
+
+<table class="stylized full">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th><%= t "model.description" %></th>
+      <th class="ta-right"><%= t "model.balance" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each_with_index do |account, index| %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= link_to account.description, admin_account_path(account) %></td>
+        <td class="ta-right"><%= number_to_currency account.balance %></td>
+        <td class="ta-right">
+          <%= link_to t("action.edit"), edit_admin_account_path(account), :class => "btn" %>
+          <%= link_to t("action.delete"), admin_account_path(account), :confirm => t("action.are_you_sure?"), :method => :delete, :class => "btn btn-red" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,52 @@
+<% content_for :title do "Edit Profile" end %>
+
+<%= form_for(@profile, :as => :profile, :url => admin_profile_path) do |f| %>
+  <% if @profile.errors.any? %>
+    <fieldset>
+      <div class="box box-error"><%= pluralize(@profile.errors.count, "error") %> prohibited your profile from being saved:</div>
+      <div class="box box-error-msg">
+  	    <ol>
+  	      <% @profile.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+  	    </ol>
+      </div>
+    </fieldset>
+  <% end %>
+  <fieldset>
+    <p>
+      <%= f.label :username, :class => "required" %><br />
+      <%= f.text_field :username, :class => "half" %>
+    </p>
+    <p>
+      <%= f.label :email, :class => "required" %><br />
+      <%= f.text_field :email, :class => "half" %>
+    </p>
+    <p>
+      <%= f.label :password %><br />
+      <%= f.password_field :password, :class => "half" %>
+      <small>Leave blank if you don't want to change it</small>
+    </p>
+    <p>
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, :class => "half" %>
+    </p>
+    <p>
+      <%= f.label :current_password, :class => "required" %><br />
+      <%= f.password_field :current_password, :class => "half" %>
+      <small>We need your current password to confirm your changes</small>
+    </p>
+    <p>
+      <%= f.label :firstname, :class => "required" %><br />
+      <%= f.text_field :firstname, :class => "half" %>
+    </p>
+    <p>
+      <%= f.label :lastname, :class => "required" %><br />
+      <%= f.text_field :lastname, :class => "half" %>
+    </p>
+    <p class="box">
+      <%= f.submit "Update Profile", :class => "btn btn-green big" %>
+      <%= f.submit "Reset", :type => "reset", :class => "btn big" %>
+    </p>
+  </fieldset>
+<% end %>

@@ -1,0 +1,190 @@
+en:
+  labelize: "%{field}:"
+
+  model:
+    customer: "customer"
+    account: "account"
+    operation: "operation"
+    transfer: "transfer"
+    statement: "statement"
+    profile: "profile"
+    name: "name"
+    address: "address"
+    phone: "phone"
+    email: "email"
+    description: "Description"
+    balance: "Balance"
+    debit: "Debit"
+    credit: "Credit"
+    date: "Date"
+    amount: "amount"
+    source_account: "source account"
+    target_account: "target account"
+    transfer_to: "Transfer to %{account}."
+    transfer_from: "Transfer from %{account}."
+    from: "from"
+    to: "to"
+    username: "username"
+    firstname: "firstname"
+    lastname: "lastname"
+    signed_up_at: "signed up at"
+    last_sign_in_at: "last sign in at"
+
+  layout:
+    signed_in_as: "Signed in as %{user}"
+    last_connection_on: "Last connection on %{date}"
+    your_information: "Your information"
+    user_information: "Customer profile"
+    search: "Search..."
+    shortcuts: "Shortcuts"
+    menu:
+      administration: "Administration"
+      customer_version: "Customer version"
+      home: "Home"
+      accounts: "Accounts"
+      operations: "Operations"
+      transfers: "Transfers"
+      statements: "Statements"
+      users: "Customers"
+    form:
+      error: "Error! Please check the following fields:"
+  
+  home:
+    welcome: "Welcome to Bankonet"
+    summary:
+      accounts: "You currently have %{accounts},"
+      operations: "with %{operations}"
+      transfers: "(including %{transfers})."
+  
+  admin:
+    welcome: "Welcome to Bankonet Administration"
+    summary:
+      intro: "Bankonet is currently managing:"
+      customers: "%{customers}"
+      accounts: "%{accounts}"
+      operations: "%{operations} (including %{credits} and %{debits})"
+      transfers: "%{transfers}"
+
+  user:
+    title:
+      index: "Customers"
+      new: "New customer"
+      edit: "Editing customer information"
+    action:
+      show: "Customer information"
+      new: "New customer"
+      create: "Create customer"
+    shortcut:
+      index: "Customer list."
+      show: "Show customer information."
+      new: "Create new customer profile."
+      edit: "Edit customer profile."
+      delete: "Delete customer registration."
+    info: "To manage accounts, operations or transfers of a specific customer, select one of them in the list below."
+
+  profile:
+    title:
+      edit: "Edit profile"
+    action:
+      update: "Update profile"
+    hint:
+      password: "Leave blank if you don't want to change it."
+      current_password: "We need your current password to confirm your changes."
+    success:
+      update: "Your profile was successfully updated."
+  
+  account:
+    title:
+      index: "Your accounts"
+      edit: "Editing account"
+      list_operations: "Listing account operations"
+    action:
+      show: "Show account"
+      new: "New account"
+      edit: "Edit account"
+      update: "Update account"
+    shortcut:
+      index: "Listing accounts."
+      show: "Show account detail."
+      new: "Create a new account."
+      edit: "Edit account description."
+      back: "Back to accounts."
+    success:
+      create: "Account was sucessfully created."
+      update: "Account was sucessfully updated."
+  
+  operation:
+    title:
+      index: "You operations"
+    info: "To list operations of a specific account, click on the account description."
+  
+  credit:
+    title:
+      new: "Crediting account %{account}"
+    action:
+      new: "New credit"
+      create: "Credit account"
+    shortcut:
+      new: "Credit the account."
+    success:
+      create: "An amount of %{amount} was successfully credited."
+
+  debit:
+    title:
+      new: "Debiting account %{account}"
+    action:
+      new: "New debit"
+      create: "Debit account"
+    shortcut:
+      new: "Debit the account."
+    success:
+      create: "An amount of %{amount} was successfully debited."
+          
+  transfer:
+    title:
+      index: "Your transfers"
+      new: "New transfer"
+      show: "Transfer detail"
+    action:
+      index: "Transfers"
+      new: "New transfer"
+      create: "Submit transfer"
+    shortcut:
+      index: "Listing transfers."
+      new: "Make a transfer."
+      back: "Back to transfers."
+    hint:
+      amount: "Type the amount in US dollars."
+    error:
+      same_source_and_target: "Source account must be different from target account"
+      inconsistent_customer: "Accounts must belong the the same customer"
+    success:
+      create: "Transfer successful."
+      
+  statement:
+    title:
+      index: "Accounts statement"
+      accounts_summary: "Accounts summary"
+      operations_per_account: "Operations per account"
+    action:
+      download_pdf: "Download PDF"
+    shortcut:
+      download_pdf: "Get this statement in PDF format."
+
+  action:
+    show: "Show"
+    edit: "Edit"
+    delete: "Delete"
+    back: "Back"
+    reset: "Reset"
+    are_you_sure?: "Are you sure?"
+  
+  helpers:
+    label:
+      account:
+        description: "Description"
+        balance: "Balance"
+      transfer:
+        amount: "Amount"
+        source_id: "Source"
+        target_id: "Target"

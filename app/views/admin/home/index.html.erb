@@ -1,0 +1,16 @@
+<% content_for :title do t("layout.menu.home") end %>
+
+<h2><%= t("admin.welcome") -%></h2>
+
+<p>
+  <%= raw t "admin.summary.intro" -%>
+  <ul>
+    <li><%= raw t("admin.summary.customers", :customers => (link_to pluralize(User.count, t("model.customer")), admin_users_path)) -%></li>
+    <li><%= raw t("admin.summary.accounts", :accounts => pluralize(Account.count, t("model.account"))) -%></li>
+    <li><%= raw t("admin.summary.operations", 
+        :operations => pluralize(Operation.count, t("model.operation")), 
+        :credits => pluralize(Credit.count, t("model.credit")),
+        :debits => pluralize(Debit.count, t("model.debit"))) -%></li>
+    <li><%= raw t("admin.summary.transfers", :transfers => pluralize(Transfer.count, t("model.transfer"))) -%></li>
+  </ul>
+</p>

@@ -1,0 +1,58 @@
+<% content_for :title do @user.fullname end %>
+
+<% content_for :shortcuts do %>
+  <dl class="first">
+    <dt><%= image_tag "edit.png" %></dt>
+  	<dd><%= link_to t("account.action.edit"), edit_admin_account_path(@account) %></dd>
+  	<dd><%= t "account.shortcut.edit" -%></dd>
+    <dt><%= image_tag "new.png" %></dt>
+  	<dd><%= link_to t("credit.action.new"), new_admin_account_credit_path(@account) %></dd>
+  	<dd><%= t "credit.shortcut.new" -%></dd>
+  	<dt><%= image_tag "new.png" %></dt>
+  	<dd><%= link_to t("debit.action.new"), new_admin_account_debit_path(@account) %></dd>
+  	<dd><%= t "debit.shortcut.new" -%></dd>
+	  <dt><%= image_tag "accounts.png" %></dt>
+  	<dd><%= link_to t("model.account").pluralize.capitalize, admin_user_accounts_path(@user) %></dd>
+  	<dd><%= t "account.shortcut.index" -%></dd>
+  	<dt><%= image_tag "transfers.png" %></dt>
+  	<dd><%= link_to t("model.transfer").pluralize.capitalize, admin_user_transfers_path(@user) %></dd>
+  	<dd class="last"><%= t "transfer.shortcut.index" -%></dd>
+  </dl>
+<% end %>
+
+<h2><%= @account.description %></h2>
+
+<p>
+  <b><%= labelize "model.balance" -%></b>
+  <%= number_to_currency @account.balance %>
+</p>
+
+<h2><%= t "account.title.list_operations" -%></h2>
+ 
+<table class="stylized full">
+  <thead>
+  <tr>
+    <th>#</th>
+    <th><%= t "model.description" -%></th>
+    <th><%= t "model.date" -%></th>
+    <th class="ta-right"><%= t "model.debit" -%></th>
+    <th class="ta-right"><%= t "model.credit" -%></th>
+  </tr>
+  <thead>
+  <tbody>
+  <% @operations.each_with_index do |operation, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= operation.description %></td>
+    <td><%= l operation.created_at, :format => :long %></td>
+    <td class="ta-right">
+      <%= number_to_currency operation.amount if operation.debit? %>
+    </td>
+    <td class="ta-right">
+      <%= number_to_currency operation.amount if operation.credit? %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<%= will_paginate @operations %>

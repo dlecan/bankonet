@@ -1,0 +1,51 @@
+<% content_for :shortcuts do %>
+  <dl class="first">
+    <dt><%= image_tag "back.png" %></dt>
+  	<dd><%= link_to t("action.back"), admin_users_path %></dd>
+  	<dd class="last"><%= t "user.shortcut.index" -%></dd>
+  </dl>
+<% end %>
+
+<%= show_errors_for @user %>
+<fieldset>
+  <p>
+    <%= f.label :username, :class => "required" %><br />
+    <%= f.text_field :username, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :email, :class => "required" %><br />
+    <%= f.text_field :email, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :firstname, :class => "required" %><br />
+    <%= f.text_field :firstname, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :lastname, :class => "required" %><br />
+    <%= f.text_field :lastname, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :street %><br />
+    <%= f.text_field :street, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :zip_code %><br />
+    <%= f.text_field :zip_code, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city, :class => "half" %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= country_select :user, :country, {nil => ""} %>
+  </p>
+  <p class="box">
+    <%= f.submit t("user.action.create"), :class => "btn btn-green big" %>
+    <%= f.submit t("action.reset"), :type => "reset", :class => "btn big" %>
+  </p>
+</fieldset>

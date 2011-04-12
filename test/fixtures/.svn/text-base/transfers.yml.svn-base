@@ -1,0 +1,9 @@
+default:
+  amount: 100
+  source_id: 1
+  target_id: 2
+  
+foreign:
+  amount: 200
+  source_id: 3
+  target_id: 5
