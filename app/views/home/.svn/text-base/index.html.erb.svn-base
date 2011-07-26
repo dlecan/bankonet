@@ -1,7 +1,0 @@
-<h2><%= t("home.welcome") -%></h2>
-
-<p>
-  <%= raw t("home.summary.accounts", :accounts => (link_to pluralize(@accounts.count, t("model.account")), accounts_path)) -%>
-  <%= raw t("home.summary.operations", :operations => (link_to pluralize(@operations.count, t("model.operation")), operations_path)) -%>
-  <%= raw t("home.summary.transfers", :transfers => (link_to pluralize(@transfers.count, t("model.transfer")), transfers_path)) -%>
-</p>
